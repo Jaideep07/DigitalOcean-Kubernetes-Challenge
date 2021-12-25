@@ -22,8 +22,8 @@ Now install also install [kubectl](https://kubernetes.io/docs/tasks/tools/instal
 #### Step 2 : Installing Harbour using HELM chart:
 I am using [Bitnami helm chart](https://bitnami.com/stack/harbor/helm) to install harbour registry. { you can refer the link for more details or can follow the sub steps below }
 - add bitnami repo to helm `helm repo add bitnami https://charts.bitnami.com/bitnami`
-- before directly installing we need to edit the values.yml file to change external url to our external one and change harbour admin password `helm show values bitnami/harbor > values.yaml`
-- Now install using `helm install harbor bitnami/harbor --values values.yaml -n harbor --create-namespace`
+- before directly installing we need to edit the harbor-values.yml file [you can find in the current directory once you run this command] to change external url to our external one and change harbour admin password `helm show values bitnami/harbor > harbor-values.yaml`
+- Now install using `helm install harbor bitnami/harbor --values harbor-values.yaml -n harbor --create-namespace`
 ![install-harbor](https://i.ibb.co/fxWNgsh/Screenshot-from-2021-12-25-18-55-22.png)
 #### Step 3 : Waiting for harbor loadbalancer's external IP to be activated
 Now lets wait for the loadbalancer's external IP to be activated, we can check the progress using the following commands
